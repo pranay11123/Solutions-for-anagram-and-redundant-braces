@@ -1,0 +1,16 @@
+class Solution:
+    # @param A : tuple of strings
+    # @return a list of list of integers
+    def anagrams(self, A):
+        a=[]
+        b=[]
+        for i in range(len(A)):
+            temp=A[i]
+            
+            if sorted(temp) in a:
+                z=a.index(sorted(temp))
+                b[z].append(i+1)
+            else:    
+                b.append([i+1])
+                a.append(sorted(temp))    
+        return b
